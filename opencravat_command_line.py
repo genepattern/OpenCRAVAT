@@ -57,7 +57,7 @@ def run_opencravat(input_file='example_input', username='', password='', annotat
     del s
     wf.close()
     # https://run.opencravat.org/result/index.html?job_id=
-    index  = open(f'{jobid}.html', 'w')
+    index  = open(f'index.html', 'w')
     index.write("<html><head><meta http-equiv=\"refresh\" content=\"0; url=https://run.opencravat.org/result/index.html?job_id="+jobid+"\"/></head></html>")
     index.close()
 

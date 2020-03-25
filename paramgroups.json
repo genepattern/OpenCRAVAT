@@ -1,0 +1,11 @@
+[
+{"name": "Input and Login",
+  "parameters": ["input.file", "cravat.username", "cravat.password" ]},
+
+{"name": "Annotations","description":"Select annotations to apply.  Some annotators appear in multiple categories below but only need to be selected once.",
+  "parameters": ["cancer", "clinical.relevance", "dbnsfp","denovo","evolution","genes","genomic.features", "germline","interactions","literature","multiplex.assays","noncoding","populations", "protein.visualization", "variants", "variant.effect.prediction"] }
+
+
+]
+
+

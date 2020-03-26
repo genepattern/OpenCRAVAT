@@ -6,25 +6,25 @@ LSID=urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00411:99
 author=Ted Liefeld, UCSD School of Medicine.
 categories=Demo
 
-commandLine=python /opencravat/opencravat_command_line.py -i <input.file> -user <cravat.username> -pass <cravat.password> <variants> <cancer> <clinical.relevance> <dbnsfp> <denovo> <evolution> <genes> <genomic.features> <germline> <interactions> <literature> <multiplex.assays> <noncoding> <populations> <protein.visualization>  <variant.effect.prediction> 
+commandLine=python /opencravat/opencravat_command_line.py -i <input.file> -user <cravat.username> -pass <cravat.password> -assembly <assembly> <variants> <cancer> <clinical.relevance> <dbnsfp> <denovo> <evolution> <genes> <genomic.features> <germline> <interactions> <literature> <multiplex.assays> <noncoding> <populations> <protein.visualization>  <variant.effect.prediction> 
 
 cpuType=any
-description=OpenCRAVAT <img src="https://opencravat.org/images/OpenCRAVAT_Logo-0-sm.png" width=50px alt="img"/>
+description=<img src="https://opencravat.org/images/OpenCRAVAT_Logo-0-sm.png" width=50px alt="img"/>OpenCRAVAT performs genomic variant interpretation including variant impact, annotation, and scoring.
 fileFormat=
 language=any
 minGenePatternVersion=3.9.13
 name=OpenCRAVAT
 os=any
-job.docker.image=genepattern/opencravat:0.1
-job.cpuCount=2
+job.docker.image=genepattern/opencravat:0.2
+job.cpuCount=1
 job.memory=2 Gb
-job.walltime=1\:00\:00
+job.walltime=4\:00\:00
 
 p1_MODE=IN
 p1_TYPE=FILE
 p1_default_value=
-p1_description=A file 
-p1_fileFormat=
+p1_description=Input file in one of the supported OpenCRAVAT input file formats like VCF, tab delimited, as well as formats provided by 23andMe, Ancestry and dbSNP.
+p1_fileFormat=tsv;VCF;vcf;tab;txt
 p1_flag=
 p1_name=input.file
 p1_numValues=1..1
@@ -37,7 +37,7 @@ p1_value=
 p2_MODE=
 p2_TYPE=TEXT
 p2_default_value=
-p2_description=OpenCravat username (<a href="http://run.opencravat.org/server/nocache/login.html" target="_blank">Register</a>).
+p2_description=OpenCravat username (<a href="http://run.opencravat.org/server/nocache/login.html" target="_blank">Register</a> at <a href="opencravat.org">opencravat.org</a> if you do not have one).
 p2_fileFormat=
 p2_flag=
 p2_name=cravat.username
@@ -64,7 +64,7 @@ p3_value=
 p4_MODE=
 p4_TYPE=
 p4_default_value=
-p4_description=Variants?
+p4_description=
 p4_fileFormat=
 p4_flag=
 p4_name=variants
@@ -74,12 +74,12 @@ p4_listMode=cmd
 p4_prefix=
 p4_prefix_when_specified=-ann1    
 p4_type=java.lang.String
-p4_value=1000 Genomes;ABRaOM;CHASMplus;CICiC;ClinVar;COSMIC;dbSNP;Denovo-DB;ESP6500;FATHMM;gnomAD;GRASP;GTEx eQTLs;HGDP;HGVS Format;MuPIT;Mutation Assessor;MutPred;NDEx;PharmGKB;PhD-SNPg;Promoter IR;REVEL;Segway;SIFT;SiPhy;VEST4;VISTA Enhancer Browser
+p4_value=thousandgenomes=1000 Genomes;abraom=ABRaOM;chasmplus=CHASMPlus;civic=CIViC;clinvar=ClinVar;cosmic=COSMIC;dbsnp=dbSNP;denovo=Denovo-DB;esp6500=ESP6500;fathmm=FATHMM;gnomad=gnomAD;grasp=GRASP;gtex=GTEx eQTLs;hgdp=HGDP;hgvs=HGVS  Format;mupit=MuPIT;mutation_assessor=Mutation Assessor;mutpred1=MutPred;ndex=NDEx;pharmgkb=PharmGKB;phdsnpg=PhD-SNPg;javierre_promoters=Promoter IR;revel=REVEL;segway=Segway;sift=SIFT;siphy=SiPhy;vest=VEST4;vista_enhancer=VISTA Enhancer Browser
 
 p5_MODE=
 p5_TYPE=
 p5_default_value=
-p5_description=Cancer Annotators to use
+p5_description=
 p5_fileFormat=
 p5_flag=
 p5_name=cancer
@@ -89,12 +89,12 @@ p5_listMode=cmd
 p5_prefix=
 p5_prefix_when_specified=-ann2 
 p5_type=java.lang.String
-p5_value=BRCA1 Multiplex Assay;Cancer Gene Census;Cancer Gene Landscape;CHASMPlus;CIViC;CICiC Gene;ClinVar;COSMIC;COSMIC Gene;MuPIT;Mutation Assessor;NDEx;TARGET
+p5_value=brca1_func_assay=BRCA1 Multiplex Assay;cgc=Cancer Gene Census;cgl=Cancer Gene Landscape;chasmplus=CHASMPlus;civic=CIViC;civic_gene=CIViC Gene;clinvar=ClinVar;cosmic=COSMIC;cosmic_gene=COSMIC Gene;mupit=MuPIT ;mutation_assessor=Mutation Assessor;ndex=NDEx;target=TARGET
 
 p6_MODE=
 p6_TYPE=
 p6_default_value=
-p6_description=Clinical Relevance
+p6_description=
 p6_fileFormat=
 p6_flag=
 p6_name=clinical.relevance
@@ -104,12 +104,12 @@ p6_listMode=cmd
 p6_prefix=
 p6_prefix_when_specified=-ann3
 p6_type=java.lang.String
-p6_value=CIViC;CIViC gene;ClinVar;Denovo-DB;GRASP;PharmGKB;TARGET
+p6_value=civic=CIViC;civic_gene=CIViC gene;clinvar=ClinVar;denovo=Denovo-DB;grasp=GRASP;pharmgkb=PharmGKB;target=TARGET
 
 p7_MODE=
 p7_TYPE=
 p7_default_value=
-p7_description=dbnsfp
+p7_description=
 p7_fileFormat=
 p7_flag=
 p7_name=dbnsfp
@@ -119,12 +119,12 @@ p7_listMode=cmd
 p7_prefix=
 p7_prefix_when_specified=-ann4
 p7_type=java.lang.String
-p7_value=BioGRID;Essential Genes;FATHMM;GERP++;GHIS;GTEx eQTLs;IntAct;InterPro;LoFtool;Mutation Assessor;MutPred;p(HI);P(rec);Phast Cons;PhD-SNPg;PhyloP;SiPhy;UK10k Cohorts;UniProt
+p7_value=biogrid=BioGRID;ess_gene=Essential Genes;fathmm=FATHMM;gerp=GERP++;ghis=GHIS;gtex=GTEx eQTLs;intact=IntAct;interpro=InterPro;loftool=LoFtool;mutation_assessor=Mutation Assessor;mutpred1=MutPred;phi=p(HI);prec=P(rec);phastcons=Phast Cons;phdsnpg=PhD-SNPg;phylop=PhyloP;siphy=SiPhy;uk10k_cohort=UK10k Cohorts;uniprot=UniProt
 
 p8_MODE=
 p8_TYPE=
 p8_default_value=
-p8_description=denovo
+p8_description=
 p8_fileFormat=
 p8_flag=
 p8_name=denovo
@@ -134,12 +134,12 @@ p8_listMode=cmd
 p8_prefix=
 p8_prefix_when_specified=-ann5
 p8_type=java.lang.String
-p8_value=Denovo-DB;MuPIT
+p8_value=denovo=Denovo-DB;mupit=MuPIT 
 
 p9_MODE=
 p9_TYPE=
 p9_default_value=
-p9_description=evolution
+p9_description=
 p9_fileFormat=
 p9_flag=
 p9_name=evolution
@@ -149,12 +149,12 @@ p9_listMode=cmd
 p9_prefix=
 p9_prefix_when_specified=-ann6
 p9_type=java.lang.String
-p9_value=GERP++;LINSIGHT;Phast Cons;PhyloP;RVIS;SiPhy
+p9_value=gerp=GERP++;linsight=LINSIGHT;phastcons=Phast Cons;phylop=PhyloP;rvis=RVIS;siphy=SiPhy
 
 p10_MODE=
 p10_TYPE=
 p10_default_value=
-p10_description=genes
+p10_description=
 p10_fileFormat=
 p10_flag=
 p10_name=genes
@@ -164,12 +164,12 @@ p10_listMode=cmd
 p10_prefix=
 p10_prefix_when_specified=-ann7
 p10_type=java.lang.String
-p10_value=BioGRID;Cancer Gene Census;Cancer Gene Landscape;CIViC Gene;COSMIC Gene;Essential Genes;ExAC Gene and CNV;Gene Ontology;GHIS;gnomAD Gene;IntAct;InterPro;LoFtool;MuPIT;NCBI Gene;NDEx;p(HI);P(rec);PubMed;RVIS;TARGET;UniProt;VEST4
+p10_value=biogrid=BioGRID;cgc=Cancer Gene Census;cgl=Cancer Gene Landscape;civic_gene=CIViC Gene;cosmic_gene=COSMIC Gene;ess_gene=Essential Genes;exac_gene=ExAC Gene and CNV;go=Gene Ontology;ghis=GHIS;gnomad_gene=gnomAD Gene;intact=IntAct;interpro=InterPro;loftool=LoFtool;mupit=MuPIT;NCBI Gene;ndex=NDEx;phi=p(HI);prec=P(rec);pubmed=PubMed;rvis=RVIS;target=TARGET;uniprot=UniProt;vest=VEST4
 
 p11_MODE=
 p11_TYPE=
 p11_default_value=
-p11_description=genomic features
+p11_description=
 p11_fileFormat=
 p11_flag=
 p11_name=genomic.features
@@ -179,12 +179,12 @@ p11_listMode=cmd
 p11_prefix=
 p11_prefix_when_specified=-ann8
 p11_type=java.lang.String
-p11_value=LINSIGHT;ncRNA;Promoter IR;Pseudogene;Repeat Sequences;VISTA Enhancer Browser
+p11_value=linsight=LINSIGHT;ncrna=ncRNA;javierre_promoters=Promoter IR;pseudogene=Pseudogene;repeat=Repeat Sequences;vista_enhancer=VISTA Enhancer Browser
 
 p12_MODE=
 p12_TYPE=
 p12_default_value=
-p12_description=germline
+p12_description=
 p12_fileFormat=
 p12_flag=
 p12_name=germline
@@ -194,12 +194,12 @@ p12_listMode=cmd
 p12_prefix=
 p12_prefix_when_specified=-ann9
 p12_type=java.lang.String
-p12_value=1000 Genomes;ClinVar;dbSNP;Denovo-DB;ESP6500;ExAC Gene and CNV;gnomAD;GRASP;GTEx eQTLs;Mutation Assessor;MutPred;Phd-SNPg;PolyPhen-2;REVEL
+p12_value=thousandgenomes=1000 Genomes;clinvar=ClinVar;dbsnp=dbSNP;denovo=Denovo-DB;esp6500=ESP6500;exac_gene=ExAC Gene and CNV;gnomad=gnomAD;grasp=GRASP;gtex=GTEx eQTLs;mutation_assessor=Mutation Assessor;mutpred1=MutPred;phdsnpg=PhD-SNPg;polyphen2=PolyPhen-2;revel=REVEL
 
 p13_MODE=
 p13_TYPE=
 p13_default_value=
-p13_description=interactions
+p13_description=
 p13_fileFormat=
 p13_flag=
 p13_name=interactions
@@ -209,12 +209,12 @@ p13_listMode=cmd
 p13_prefix=
 p13_prefix_when_specified=-ann10
 p13_type=java.lang.String
-p13_value=BioGRID;IntAct;NDEx
+p13_value=biogrid=BioGRID;intact=IntAct;ndex=NDEx
 
 p14_MODE=
 p14_TYPE=
 p14_default_value=
-p14_description=literature
+p14_description=
 p14_fileFormat=
 p14_flag=
 p14_name=literature
@@ -224,12 +224,12 @@ p14_listMode=cmd
 p14_prefix=
 p14_prefix_when_specified=-ann11
 p14_type=java.lang.String
-p14_value=CIViC;CIViC Gene;ClinVar;dbSNP;GRASP;PubMed
+p14_value=civic=CIViC;civic_gene=CIViC Gene;clinvar=ClinVar;dbsnp=dbSNP;grasp=GRASP;pubmed=PubMed
 
 p15_MODE=
 p15_TYPE=
 p15_default_value=    
-p15_description=multiplex assays
+p15_description=
 p15_fileFormat=
 p15_flag=
 p15_name=multiplex.assays
@@ -239,12 +239,12 @@ p15_listMode=cmd
 p15_prefix=
 p15_prefix_when_specified=-ann12
 p15_type=java.lang.String
-p15_value=BRCA1 Multiplex Assay
+p15_value=brca1_func_assay=BRCA1 Multiplex Assay
 
 p16_MODE=
 p16_TYPE=
 p16_default_value=
-p16_description=noncoding
+p16_description=
 p16_fileFormat=
 p16_flag=
 p16_name=noncoding
@@ -254,12 +254,12 @@ p16_listMode=cmd
 p16_prefix=
 p16_prefix_when_specified=-ann13
 p16_type=java.lang.String
-p16_value=1000 Genomes;dbSNP;Denovo-DB;gnomAD;GRASP;GTEx eQTLs;LINSIGHT;ncRNA;PhD-SNPg;Promoter IR;Segway;VISTA Enhancer Browser
+p16_value=thousandgenomes=1000 Genomes;dbsnp=dbSNP;denovo=Denovo-DB;gnomad=gnomAD;grasp=GRASP;gtex=GTEx eQTLs;linsight=LINSIGHT;ncrna=ncRNA;phdsnpg=PhD-SNPg;javierre_promoters=Promoter IR;segway=Segway;vista_enhancer=VISTA Enhancer Browser
 
 p17_MODE=
 p17_TYPE=
 p17_default_value=
-p17_description=populations
+p17_description=
 p17_fileFormat=
 p17_flag=
 p17_name=populations
@@ -269,12 +269,12 @@ p17_listMode=cmd
 p17_prefix=
 p17_prefix_when_specified=-ann14
 p17_type=java.lang.String
-p17_value=1000 Genomes;ABRaOM;dbSNP;ESP6500;ExAC Gene and CNV;gnomAD;gnomAD Gene;HGDP;UK10k Cohorts
+p17_value=thousandgenomes=1000 Genomes;abraom=ABRaOM;dbsnp=dbSNP;esp6500=ESP6500;exac_gene=ExAC Gene and CNV;gnomad=gnomAD;gnomad_gene=gnomAD Gene;hgdp=HGDP;uk10k_cohort=UK10k Cohorts
 
 p18_MODE=
 p18_TYPE=
 p18_default_value=
-p18_description=protein visualization
+p18_description=
 p18_fileFormat=
 p18_flag=
 p18_name=protein.visualization
@@ -284,12 +284,12 @@ p18_listMode=cmd
 p18_prefix=
 p18_prefix_when_specified=-ann15
 p18_type=java.lang.String
-p18_value=MuPIT
+p18_value=mupit=MuPIT 
 
 p19_MODE=
 p19_TYPE=
 p19_default_value=
-p19_description=variant effect prediction
+p19_description=
 p19_fileFormat=
 p19_flag=
 p19_name=variant.effect.prediction
@@ -299,9 +299,22 @@ p19_listMode=cmd
 p19_prefix=
 p19_prefix_when_specified=-ann16
 p19_type=java.lang.String
-p19_value=CHASMplus;CHASMplus MSK-IMPACT;FATHMM;LINSIGHT;MuPIT;Mutation Assessor;MutPred;PhD-SNPg;PolyPhen-2;REVEL;SIFT;VEST4
+p19_value=chasmplus=CHASMPlus;fathmm=FATHMM;linsight=LINSIGHT;mupit=MuPIT ;mutation_assessor=Mutation Assessor;mutpred1=MutPred;phdsnpg=PhD-SNPg;polyphen2=PolyPhen-2;revel=REVEL;sift=SIFT;vest=VEST4
 
-
+p20_MODE=
+p20_TYPE=
+p20_default_value=hg38
+p20_description=Genome assembly to use
+p20_fileFormat=
+p20_flag=
+p20_name=assembly
+p20_numValues=1
+p20_optional=
+p20_listMode=
+p20_prefix=
+p20_prefix_when_specified=
+p20_type=java.lang.String
+p20_value=hg38=GRCh38/hg38;hg19=GRCh37/hg19
 
 
 

@@ -67,7 +67,7 @@ def run_opencravat(input_file='example_input', username='', password='', assembl
         index.write("<html><head><meta http-equiv=\"refresh\" content=\"0; url=https://run.opencravat.org/result/index.html?job_id="+jobid+"\"/></head></html>")
         index.close()
     else:
-        print("An error occurred.  See the response from the OpenCravat server.")
+        print("An error occurred.  Details may be available in your account on the http://run.opencravat.org server.")
         raise SystemExit(r.json())
 
 def main():

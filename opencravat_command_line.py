@@ -28,9 +28,7 @@ def run_opencravat(input_file='example_input', username='', password='', assembl
     print("Login succesful... trying " + submit_url)
     annotators = "clinvar,dbsnp"
     s = session.post(submit_url, files={'file_0': open(input_file)}, data={'options': '{"annotators": ["clinvar"], "reports": ["text"], "assembly": "'+assembly+'", "note": "Run from GenePatern"}'})
-    #s = session.post(submit_url, files={'file_0': open(input_file)}, data={'options': '{"annotators": ["clinvar", "dbsnp", "ncbigene"], "reports": ["text"], "assembly": "'+assembly+'", "note": "test run"}'})
     
-
     print("job submitted")
     jobid = s.json()['id']
     print(f'Job submitted. Job ID={jobid}')
@@ -42,7 +40,7 @@ def run_opencravat(input_file='example_input', username='', password='', assembl
         if (status != 'Finished') & (status != 'Error'):
             print(r.json()['status'])
             print(f'Waiting for the job to finish...', flush=True)
-            time.sleep(5)
+            time.sleep(30)
         else:
             break
 
@@ -51,7 +49,6 @@ def run_opencravat(input_file='example_input', username='', password='', assembl
         report_list_url = f'{base_url}/submit/jobs/{jobid}/reports'
         s = session.get(report_list_url)
         if 'tsv' not in s.json():
-            #uio.status = 'Generating Report'
             print(f'Generating a TSV report...')
             s = session.post(report_url)
             if s.json() == 'done':
@@ -62,7 +59,6 @@ def run_opencravat(input_file='example_input', username='', password='', assembl
         shutil.copyfileobj(s.raw, wf)
         del s
         wf.close()
-        # https://run.opencravat.org/result/index.html?job_id=
         index  = open(f'{jobid}.html', 'w')
         index.write("<html><head><meta http-equiv=\"refresh\" content=\"0; url=https://run.opencravat.org/result/index.html?job_id="+jobid+"\"/></head></html>")
         index.close()
@@ -104,9 +100,6 @@ def main():
     print("AnnString is " + annString)
 
     run_opencravat(input_file=args.input_filename, username=args.user , password=args.ocpassword , assembly=args.assembly,  annotators=annString, base_url='https://run.opencravat.org')
-
-
-
 
     print('Finished computation.')
 

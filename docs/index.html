@@ -4,6 +4,7 @@
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>OpenCRAVAT GenePattern Module</title>
   <link href="./assets/docstyle.css" media="all" rel="stylesheet">
+  <link href="./assets/oc.css" media="all" rel="stylesheet">
   <style type="text/css"></style>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta content="authenticity_token" name="csrf-param">
@@ -34,59 +35,66 @@
 	<dt>Author(s)</dt>
 	<dd>Karchin Lab, Johns Hopkins University, wrapped as a module by Ted Liefeld, Mesirov Lab, UCSD School of Medicine.</dd>
 	<dt>Contact(s)</dt>
-	<dd><p>Algorithm and scientific questions:&nbsp;&lt;someone &nbsp;at jhu  dot edu&gt;</p>
-<p>Module wrapping issues:&nbsp; Ted Liefeld &nbsp;&lt; jliefeld at cloud dot ucsd dot edu&gt;</p>
-</dd>
+	<dd><p>Algorithm and scientific questions:&nbsp;&lt;support &nbsp;at cravat  dot us&gt;</p>
+	<p>Module wrapping issues:&nbsp; Ted Liefeld &nbsp;&lt; jliefeld at cloud dot ucsd dot edu&gt;</p>
+	</dd>
 </dl>
-
-
-<hr>
 
 <h2>Introduction</h2>
 
-<p>Open-CRAVAT is a python package that performs genomic variant interpretation including variant impact, annotation, and scoring. It has a modular architecture with a wide variety of analysis modules that are developed both by the CRAVAT team and the broader variant analysis community. Open-CRAVAT is a product of the Karchin Lab at Johns Hopkins University in collaboration with In Silico Solutions with funding provided by the National Cancer Institute's ITCR program.</p>
-
-<p>&nbsp;</p>
-
-<h2>Algorithm</h2>
-<p>
-<h5>Karchin Lab cover details of this portion of the analysis</h5>
-</p>
+<p>This GenePattern Notebook tool submits a list of variants to the <a href="https://run.opencravat.org">OpenCRAVAT Server</a> for analysis.  
+OpenCRAVAT is a software package that performs genomic variant interpretation including variant impact, annotation, and scoring. It has a modular 
+architecture with a wide variety of analysis modules that are developed both by the CRAVAT team and the broader variant analysis community. 
+OpenCRAVAT is a product of the <a href="https://karchinlab.org/">Karchin Lab</a> at Johns Hopkins University in collaboration with 
+<a href="http://insilico.us.com">In Silico Solutions</a> with funding provided by the National Cancer Institute's 
+<a href="https://itcr.cancer.gov/">ITCR</a> program.</p>
 
 <h2>References</h2>
-<p>Karchin Lab &nbsp; <a href="https://karchinlab.org/">lab website</a></p>
-<p><b>ADD GPNB NOTEBOOK HERE WHEN READY</b></p>
+<p><b>Publication:</b> OpenCRAVAT, an open source collaborative platform for the annotation of human genetic variation
+Kymberleigh A Pagel, Rick Kim, Kyle Moad, Ben Busby, Lily Zheng, Matthew Hynes-Grace, Collin Tokheim, Michael Ryan, Rachel Karchin
+bioRxiv 794297; doi: https://doi.org/10.1101/794297 </p>
+<p><b>Documentation:</b> <a href="https://github.com/KarchinLab/open-cravat/wiki">OpenCRAVAT Wiki</a></p>
+<p><b>Store:</b> Please see the Store tab on the OpenCRAVAT <a href="https://run.opencravat.org">server</a> for a description of each available analysis module.</p>
 
-<h2>Input Files</h2>
+<h2>Tool Description</h2>
+<img src="./assets/OC_GenePattern.png"  class="center"/>
+<h3>Input File</h3>
 
-<ol>
-	<li>data file *<br>
- A file containing data.</li>
-	
-</ol>
+<ul style="list-style-type:none;">
+	<li>OpenCRAVAT accepts input files of several different formats.  The most common is VCF but it
+	also accepts a simple tab delimited text file as well as 23andMe, Ancestry, and dbSNP formats.</li>
+	<li>&nbsp;</li>
+	<li>Please see the OpenCRAVAT <a href="https://github.com/KarchinLab/open-cravat/wiki">Docs</a> for more information on input file formats.</li>
+	<li>&nbsp;</li>
+	<li>Note the current version of this tool supports only variants in GRCh38 coordinates.  The
+	next release of the tool will provide a selection for older genome version (e.g. GRCh37/hg19)</li>
+</ul>
 
-<h2>Output Files</h2>
+<h3>Output Files</h3>
 
-<ol>
-	<li>&lt;Cravat job number&gt;.csv.zip<br/>
-	Output file as zipped csv</li>
-	<li>&lt;output filename&gt;.html<bt/>
-        Web link to OpenCRAVAT web visualization. 
+<ul style="list-style-type:none;">
+	<li><b>&lt;Cravat job number&gt;.csv.zip</b><br/>
+	   The zip file contains the results of OpenCRAVAT annotation in a comma separated text file format.  There are several files in the zip file.
+	   The file *.variant.csv will have one line per submitted variant and will contain columns with results from each analysis module. </li>
+	<li>&nbsp;</li>
+	<li><b>&lt;output filename&gt;.html</b><bt/>
+        OpenCRAVAT has a functionally rich environment for filtering, sorting and exploring the variants in your results.  This link will
+        take you to the results browser for your job on the OpenCRAVAT server. 
         </li>
+</ul>
+	<img src="./assets/OC_ResultsViewer.png"  class="center" width='80%'/>        
 
 
-</ol>
+<h3>Example Data</h3>
 
-<h2>Example Data</h2>
+<p>	Small sample input files: <a href="./assets/OpenCRAVAT_Sample.vcf">VCF</a>  <a href="./assets/OpenCRAVAT_Sample.txt">TXT</a>
 
-<p>Example data can be downloaded from ????<br/>
-
-<h2>Requirements</h2>
+<h3>Requirements</h3>
 
 <p>GenePattern 3.9.11 or later (dockerized).</p>
 
 
-<h2>Parameters</h2>
+<h3>Parameters</h3>
 
 <table class="table table-striped">
 	
@@ -98,73 +106,24 @@
 		</tr>
 		<tr>
 			<td>data file*</td>
-			<td> data/td>
+			<td>Input file in one of the supported OpenCRAVAT input file formats like VCF.</td>
 		</tr>
 		<tr>
 			<td>Cravat username*</td>
-			<td>The username on opencravat.org.</td>
+			<td>A requirement of this tool is a valid login to the OpenCRAVAT server.  If you don't have a login, use the 'Register' link to create one.</td>
 		</tr>
-
-                 <tr>
-                        <td>Cravat password*</td>
-                        <td>The password on opencravat.org.</td>
-                </tr>
-
-		<tr><td colspan=2><h4>Example parameter group heading</h4>
-			Parameters used if variable genes are to be selected as the feature.
-                </td></tr>
-		<tr>
-			<th>Name</th>
-			<th>Description</th>
-		</tr>
-		<tr>
-			<td>   </td>
-			<td>   </td>
-		</tr>
-                <tr><td colspan=2>
-			<h4>MODULE_CATEGORY_2</h4>
-                        Parameters used if .
-                </td></tr>
-                <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                </tr>
-
-                <tr>
-                        <td>   </td>
-                        <td>   </td>
-                </tr>
-                <tr><td colspan=2><h4>Plotting</h4>
-                        Parameters controlling the output figures.
-                </td></tr>
-		<tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                </tr>
-                <tr>
-                        <td>figure height</td>
-                        <td>Figure height as used in matplotlib graphs.  Default=8.</td>
-                </tr>
-                <tr>
-                        <td>figure width</td>
-                        <td>Figure width as used in matplotlib plots.  Default=8</td>
-                </tr>
-
-
-	</tbody>
+        <tr>
+            <td>Cravat password*</td>
+            <td>The password for the OpenCRAVAT login.</td>
+        </tr>
+        <tr>
+            <td>Annotations</td>
+            <td>This panel is used to select the annotation modules that should be run on the variants.  Annotation modules are grouped by category like
+            clinical relevance and variant effect prediction.  The drop down lists in each category are multi select list so more than one module in 
+            each category can be selected.  The same module may be found in multiple categories.  A detailed description of each module can be found
+            on the Store tab of the OpenCRAVAT <a href="https://run.opencravat.org">server</a>.</td>
+        </tr>
+     </tbody>
 </table>
-
-<p><span style="color: red;">*</span> - required</p>
-			</div>
-		</div>
-	</div>
-
-	</div>
-	<footer class="container fluid gp-footer">
-	<div class="fluid text-center">©2006-2020 Regents of the University of California &amp; The Broad Institute of MIT and Harvard</div> 
-</footer>
-
-
-
-<div id="feedly-mini" title="feedly Mini tookit"></div></body></html>
+</body></html>
 

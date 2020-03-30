@@ -22,12 +22,12 @@ def run_opencravat(input_file='example_input', username='', password='', assembl
     submit_url = f'{base_url}/submit/submit'
     session = requests.Session()
     print(f'Logging in...')
-    print("annotating with "+ annotators, flush=True)
+    print("annotating with =="+ annotators+"==", flush=True)
     print("assembly is " + assembly)
     s = session.get(login_url, auth=HTTPBasicAuth(username, password))
     print("Login succesful... trying " + submit_url)
-    annotators = "clinvar,dbsnp"
-    s = session.post(submit_url, files={'file_0': open(input_file)}, data={'options': '{"annotators": ["clinvar"], "reports": ["text"], "assembly": "'+assembly+'", "note": "Run from GenePatern"}'})
+    print('{"annotators": ['+annotators+'], "reports": ["text"], "assembly": "'+assembly+'", "note": "Run from GenePatern"}')
+    s = session.post(submit_url, files={'file_0': open(input_file)}, data={'options': '{"annotators": ['+annotators+'], "reports": ["text"], "assembly": "'+assembly+'", "note": "Run from GenePatern"}'})
     
     print("job submitted")
     jobid = s.json()['id']
@@ -64,6 +64,16 @@ def run_opencravat(input_file='example_input', username='', password='', assembl
         index.close()
     else:
         print("An error occurred.  Details may be available in your account on the http://run.opencravat.org server.")
+        report_url = f'{base_url}/submit/jobs/{jobid}/log'
+        report_log_url = f'{base_url}/submit/jobs/{jobid}/log'
+        s = session.get(report_log_url)
+        print(type(s))
+        print(s.text)
+        wf = open(f'{jobid}.errorlog.txt', 'w')
+        wf.write(s.text)
+        del s
+        wf.close()
+
         raise SystemExit(r.json())
 
 def main():

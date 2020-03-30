@@ -37,7 +37,7 @@ p1_value=
 p2_MODE=
 p2_TYPE=TEXT
 p2_default_value=
-p2_description=OpenCravat username (<a href="http://run.opencravat.org/server/nocache/login.html" target="_blank">Register</a> at <a href="opencravat.org">opencravat.org</a> if you do not have one).
+p2_description=OpenCravat username (<a href="http://run.opencravat.org/server/nocache/login.html" target="_blank">Register</a> at <a href="https://run.opencravat.org">opencravat.org</a> if you do not have one).
 p2_fileFormat=
 p2_flag=
 p2_name=cravat.username

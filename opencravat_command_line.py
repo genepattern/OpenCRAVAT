@@ -67,8 +67,6 @@ def run_opencravat(input_file='example_input', username='', password='', assembl
         report_url = f'{base_url}/submit/jobs/{jobid}/log'
         report_log_url = f'{base_url}/submit/jobs/{jobid}/log'
         s = session.get(report_log_url)
-        print(type(s))
-        print(s.text)
         wf = open(f'{jobid}.errorlog.txt', 'w')
         wf.write(s.text)
         del s

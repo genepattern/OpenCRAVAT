@@ -1,0 +1,29 @@
+#
+# ant -f ${GPUNIT_HOME}/build.xml -Dgpunit.diffStripTrailingCR="--strip-trailing-cr" -Dgp.host="beta.genepattern.org" -Dgp.url="https://beta.genepattern.org" -Dgp.user="ted-dev" -Dgp.password="" -Dgpunit.testfolder=`pwd` gpunit
+#
+name: OpenCRAVAT
+module: OpenCRAVAT
+params: 
+    "input.file": "./data/example_input" 
+    "cravat.password": "" 
+    "cravat.username":  ""
+    "variants": "clinvar"
+    "assembly": "hg38"
+    "cancer": "clinvar"
+    "clinical.relevance": "clinvar"
+    "germline": "clinvar"
+    "literature": "clinvar"
+    "denovo": "mupit"
+    "genes": "mupit"
+    "protein.visualization": "mupit"
+    "variant.effect.prediction": "mupit"
+    "populations": "dbsnp"
+    "noncoding": "dbsnp"
+    "multiplex.assays": "brca1_func_assay"
+    "interactions": "biogrid"
+    "genomic.features": "linsight"
+    "evolution": "gerp"
+    "dbnsfp": "biogrid"
+assertions:
+    jobStatus: success
+

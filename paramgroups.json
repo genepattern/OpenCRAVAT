@@ -1,8 +1,8 @@
 [
 {"name": "Input and Login",
-  "parameters": ["input.file", "cravat.username", "cravat.password" ]},
+  "parameters": ["input.file", "cravat.username", "cravat.password", "assembly" ]},
 
-{"name": "Annotations","description":"Select annotations to apply.  Some annotators appear in multiple categories below but only need to be selected once.",
+{"name": "Annotations","description":"Select the annotation modules that should be run on the variants. Annotation modules are grouped by category like clinical relevance and variant effect prediction. The drop down lists in each category are multi select list so more than one module in each category can be selected. The same module may be found in multiple categories. A detailed description of each module can be found on the Store tab of the <a href=\"https://run.opencravat.org/\">OpenCRAVAT server</a>.",
   "parameters": ["cancer", "clinical.relevance", "dbnsfp","denovo","evolution","genes","genomic.features", "germline","interactions","literature","multiplex.assays","noncoding","populations", "protein.visualization", "variants", "variant.effect.prediction"] }
 
 

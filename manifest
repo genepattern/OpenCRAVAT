@@ -4,7 +4,7 @@
 JVMLevel=
 LSID=urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00411:99999999
 author=Ted Liefeld, UCSD School of Medicine.
-categories=Demo
+categories=variant annotation
 
 commandLine=python /opencravat/opencravat_command_line.py -i <input.file> -user <cravat.username> -pass <cravat.password> -assembly <assembly> <variants> <cancer> <clinical.relevance> <dbnsfp> <denovo> <evolution> <genes> <genomic.features> <germline> <interactions> <literature> <multiplex.assays> <noncoding> <populations> <protein.visualization>  <variant.effect.prediction> 
 

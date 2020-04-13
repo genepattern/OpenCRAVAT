@@ -6,7 +6,7 @@ module: OpenCRAVAT
 params: 
     "input.file": "./data/example_input" 
     "cravat.password": <%gpunit.test.userpassword%> 
-    "cravat.username":  ${gpunit.test.useremail}
+    "cravat.username":  <%gpunit.test.useremail%>
     "variants": "clinvar"
     "assembly": "hg38"
     "cancer": "clinvar"

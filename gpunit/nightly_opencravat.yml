@@ -28,4 +28,6 @@ params:
     "dbnsfp": "biogrid"
 assertions:
     jobStatus: success
-
+    files:
+        "*.csv.zip": !!null
+        "*.html": !!null

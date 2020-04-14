@@ -29,5 +29,5 @@ params:
 assertions:
     jobStatus: success
     files:
-        "*.csv.zip": !!null
+        "*.tsv.zip": !!null
         "*.html": !!null

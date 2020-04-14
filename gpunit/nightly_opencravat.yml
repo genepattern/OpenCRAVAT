@@ -28,6 +28,5 @@ params:
     "dbnsfp": "biogrid"
 assertions:
     jobStatus: success
-    files:
-        - /^.*.tsv.zip/
-        - /^.*.html/
+    numfiles: 3
+    # We expect a .tsv.zip, .html and .stdout - wildcards for the unkown exact output name were unsuccessful

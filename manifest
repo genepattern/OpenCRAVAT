@@ -2,7 +2,7 @@
 # 
 #Tues Jun 11 21:02:09 UTC 2019
 JVMLevel=
-LSID=urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00411:99999999
+LSID=urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00411
 author=Ted Liefeld, UCSD School of Medicine.
 categories=variant annotation
 
@@ -10,9 +10,9 @@ commandLine=python /opencravat/opencravat_command_line.py -i <input.file> -user 
 
 cpuType=any
 description=<img src="https://opencravat.org/images/OpenCRAVAT_Logo-0-sm.png" width=50px alt="img"/>OpenCRAVAT performs genomic variant interpretation including variant impact, annotation, and scoring.
-fileFormat=
+fileFormat=html, csv.zip
 language=any
-minGenePatternVersion=3.9.13
+minGenePatternVersion=3.9.11
 name=OpenCRAVAT
 os=any
 job.docker.image=genepattern/opencravat:0.3
@@ -23,7 +23,7 @@ job.walltime=4\:00\:00
 p1_MODE=IN
 p1_TYPE=FILE
 p1_default_value=
-p1_description=Input file in one of the supported OpenCRAVAT input file formats like VCF, tab delimited, as well as formats provided by 23andMe, Ancestry and dbSNP.
+p1_description=Input file in one of the supported OpenCRAVAT input file formats like VCF, tab delimited, as well as formats provided by 23andMe, Ancestry, and dbSNP.
 p1_fileFormat=tsv;VCF;vcf;tab;txt
 p1_flag=
 p1_name=input.file
@@ -320,10 +320,10 @@ p20_value=hg38=GRCh38/hg38;hg19=GRCh37/hg19
 
 privacy=public
 publicationDate=06/11/2019 09\:09 
-quality=beta
+quality=production
 requiredPatchLSIDs=
 requiredPatchURLs=
 taskDoc=doc.html
 taskType=
 userid=ted
-version=inital revision
+version=inital release

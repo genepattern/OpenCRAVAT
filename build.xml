@@ -97,6 +97,9 @@
 
         <!-- NOTE: this will overwrite any LSID already in the manifest file -->
         <propertyfile file="manifest">
+            <echo> ${quality.level} from module build.xml </echo>
+            <echo> ${LSID} from module build.xml </echo>
+            <echo> ${publish.time} from module build.xml </echo>
             <entry key="quality" value="${quality.level}" />
             <entry key="LSID" value="${LSID}" />
             <entry key="publicationDate" value="${publish.time}" />

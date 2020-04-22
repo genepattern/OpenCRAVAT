@@ -324,6 +324,6 @@ quality=production
 requiredPatchLSIDs=
 requiredPatchURLs=
 taskDoc=doc.html
-taskType=
+taskType=variant annotation
 userid=ted
 version=inital release

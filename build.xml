@@ -36,6 +36,7 @@
         <property name="dest.dir" value="build" />
 
         <mkdir dir="build" />
+        <echo>${quality.level} from build.xml </echo>
     </target>
 
     <target name="init_devrelease" depends="init">

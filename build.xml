@@ -36,7 +36,6 @@
         <property name="dest.dir" value="build" />
 
         <mkdir dir="build" />
-        <echo>${quality.level} from build.xml </echo>
     </target>
 
     <target name="init_devrelease" depends="init">
@@ -50,7 +49,6 @@
     <target name="init_prerelease" depends="init">
         <property name="prereleasingModule" value="true" />
         <property name="quality.level" value="preproduction" />
-        <echo> ${quality.level} from build.xml </echo>
     </target>
 
     <target name="init_release" depends="init">
@@ -96,10 +94,6 @@
 
         <!-- Work on a copy of the manifest to avoid unnecessary churn in version control. -->
         <copy file="manifest" tofile="manifest.tmp" preservelastmodified="true" overwrite="true" />
-
-            <echo> ${quality.level} from module build.xml </echo>
-            <echo> ${LSID} from module build.xml </echo>
-            <echo> ${publish.time} from module build.xml </echo>
 
         <!-- NOTE: this will overwrite any LSID already in the manifest file -->
         <propertyfile file="manifest">

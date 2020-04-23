@@ -49,6 +49,7 @@
     <target name="init_prerelease" depends="init">
         <property name="prereleasingModule" value="true" />
         <property name="quality.level" value="preproduction" />
+        <echo> ${quality.level} from build.xml </echo>
     </target>
 
     <target name="init_release" depends="init">
@@ -87,7 +88,7 @@
     
     <target name="releaseModule" depends="init_release,update-release-props,load-release-props,create-zip,resetManifest" />
     
-    <target name="addLSIDtoManifest" depends="init,getLSID,init_release,init_prerelease">
+    <target name="addLSIDtoManifest" depends="init,getLSID">
         <tstamp>
             <format property="publish.time" pattern="MM/dd/yyyy HH:mm " />
         </tstamp>

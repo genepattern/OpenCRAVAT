@@ -51,8 +51,8 @@
         <property name="quality.level" value="preproduction" />
     </target>
 
-    <target name="init_release" depends="init" unless="prereleasingModule">
-        <!-- property name="prereleasingModule" value="false" /-->
+    <target name="init_release" depends="init">
+        <property name="prereleasingModule" value="false" />
         <property name="quality.level" value="production" />
     </target>
 

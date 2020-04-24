@@ -1,12 +1,14 @@
 #
 # ant -f ${GPUNIT_HOME}/build.xml -Dgpunit.diffStripTrailingCR="--strip-trailing-cr" -Dgp.host="beta.genepattern.org" -Dgp.url="https://beta.genepattern.org" -Dgp.user="ted-dev" -Dgp.password="" -Dgpunit.testfolder=`pwd` gpunit
+# 
+# username and password are store in the gpunit.properties file in the GPUnit Repository, in the Broad Institute Git org
 #
 name: OpenCRAVAT
 module: OpenCRAVAT
 params: 
     "input.file": "./data/example_input" 
-    "cravat.password": "" 
-    "cravat.username":  ""
+    "cravat.password": <%gpunit.test.userpassword%> 
+    "cravat.username": <%gpunit.test.useremail%>
     "variants": "clinvar"
     "assembly": "hg38"
     "cancer": "clinvar"
@@ -26,4 +28,5 @@ params:
     "dbnsfp": "biogrid"
 assertions:
     jobStatus: success
-
+    numFiles: 3
+    # We expect a .tsv.zip, .html and .stdout - wildcards for the unkown exact output name were unsuccessful

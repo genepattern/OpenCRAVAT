@@ -83,8 +83,10 @@ def main():
     for x in range(1,21):
         parser.add_argument("-ann"+str(x), "--annotators"+str(x), dest="ann"+str(x),default = '', help="annotator ")
 
-    args = parser.parse_args()
-    print(args)    
+    args, unknown  = parser.parse_known_args()
+    print(args)  
+    print("Unknown arguments being ignored")
+    print(unknown)  
     print('Starting procedure...')
     workdir = "./"
     annotators = [] 
